@@ -15,12 +15,12 @@ function ClassifyList() {
     visible: false,
   });
 
-  const onDelete = (tagId: string) => {
+  const onDelete = (id: string) => {
     Modal.confirm({
       title: '是否确认删除此标签',
       okButtonProps: { status: 'danger' },
       onOk: async () => {
-        await deleteTag(tagId);
+        await deleteTag(id);
         tableRef.current.reload();
       },
     });
@@ -30,13 +30,13 @@ function ClassifyList() {
     {
       title: '名称',
       render: (_, row) => {
-        return <Tag color="arcoblue">{row.name}</Tag>;
+        return <Tag color="arcoblue">{row.tagName}</Tag>;
       },
     },
     {
       title: '颜色',
       render: (_, row) => {
-        return <Tag color="row.color">{row.color}</Tag>;
+        return <Tag style={{backgroundColor: row.tagColor}}>{row.tagColor}</Tag>;
       },
     },
     {
@@ -78,15 +78,14 @@ function ClassifyList() {
       },
     },
   ];
-
-  const loadList = async (param: API.PageParams) => {
+  const loadList: any = async (param: API.PageParams) => {
     const res = await getTagList({
       ...param,
     });
     console.log(res);
     return {
-      total: 2,
-      list: res,
+      total: res.total,
+      list: res.data,
     };
   };
 

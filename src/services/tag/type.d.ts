@@ -3,8 +3,8 @@ import { Color } from 'bizcharts/lib/plots/core/dependents';
 export namespace Tag {
   type TagItem = {
     id: string;
-    name: string;
-    color: string;
+    tagName: string;
+    tagColor: string;
     createTime: string;
     updateTime: string;
   };

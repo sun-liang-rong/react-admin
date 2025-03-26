@@ -17,7 +17,7 @@ export const createTag = (params: API.Tag.CreateParams) =>
     name: '创建标签',
   });
 
-export const editTag = (params: API.Tag.CreateParams & { tagId: string }) =>
+export const editTag = (params: API.Tag.CreateParams & { id: string }) =>
   fetch<API.Success>({
     method: 'put',
     url: `${prefix}/edit`,
@@ -25,12 +25,9 @@ export const editTag = (params: API.Tag.CreateParams & { tagId: string }) =>
     name: '删除标签',
   });
 
-export const deleteTag = (tagId: string) =>
+export const deleteTag = (id: string) =>
   fetch<API.Success>({
     method: 'delete',
-    url: `${prefix}/delete`,
-    params: {
-      tagId,
-    },
+    url: `${prefix}/${id}`,
     name: '删除标签',
   });

@@ -1,9 +1,8 @@
 import ProModal from '@/proComponents/Modal';
 import { Form, Input, Select } from '@arco-design/web-react';
-import { IconStar, IconDelete } from '@arco-design/web-react/icon';
+import { IconStar } from '@arco-design/web-react/icon';
 import { createTag, editTag } from '@/services/tag';
 import React from 'react';
-import { Color } from 'bizcharts/lib/plots/core/dependents';
 const Option = Select.Option;
 const FormItem = Form.Item;
 interface Props {
@@ -30,11 +29,12 @@ function EditTagInfo(props: Props) {
   ];
   const { onCancel, reload, selectInfo } = props;
   const [form] = Form.useForm();
+  console.log(selectInfo, 'selectInfo');
   const onOk = async (values: API.Tag.CreateParams) => {
     if (selectInfo) {
       await editTag({
         ...values,
-        tagId: selectInfo.id,
+        id: selectInfo.id,
       });
     } else {
       await createTag(values);

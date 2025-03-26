@@ -15,6 +15,7 @@ interface ProModalProps extends ModalProps {
 }
 
 const ProModal = (props: ProModalProps) => {
+  console.log(props.form, 'form')
   const {
     width,
     onSubmit,
