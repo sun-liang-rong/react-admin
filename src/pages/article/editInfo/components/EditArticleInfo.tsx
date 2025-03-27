@@ -23,12 +23,20 @@ function EditArticleInfo(props: Props) {
     if (!detail) {
       return {};
     }
-    const { title, summary, category } = detail;
+    console.log(detail, 'detail');
+    const { title, summary, categories } = detail;
+    console.log(detail, {
+      title,
+      summary,
+      tagIds: detail?.tags?.map((val) => val.id) ?? [],
+      categoryId: categories?.map((val) => val.id) ?? [],
+      coverImage: detail?.coverImage,
+    }, 'detail');
     return {
       title,
       summary,
-      tagIds: detail?.tags?.map((val) => val.tagId) ?? [],
-      categoryId: category?.categoryId,
+      tagIds: detail?.tags?.map((val) => val.id) ?? [],
+      categoryId: categories?.map((val) => val.id) ?? [],
       coverImage: detail?.coverImage,
     };
   }, [detail]);
@@ -49,8 +57,8 @@ function EditArticleInfo(props: Props) {
 
   const tagOptions = useMemo(() => {
     return (
-      tagResult?.tagList?.map((val) => ({
-        value: val.tagId,
+      tagResult?.data?.map((val) => ({
+        value: val.id,
         label: val.tagName,
       })) ?? []
     );
@@ -58,8 +66,8 @@ function EditArticleInfo(props: Props) {
 
   const categoryOptions = useMemo(() => {
     return (
-      categoryResult?.categoryList?.map((val) => ({
-        value: val.categoryId,
+      categoryResult?.data?.map((val) => ({
+        value: val.id,
         label: val.categoryName,
       })) ?? []
     );

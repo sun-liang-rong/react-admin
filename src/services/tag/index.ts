@@ -20,9 +20,9 @@ export const createTag = (params: API.Tag.CreateParams) =>
 export const editTag = (params: API.Tag.CreateParams & { id: string }) =>
   fetch<API.Success>({
     method: 'put',
-    url: `${prefix}/edit`,
+    url: `${prefix}/${params.id}`,
     params,
-    name: '删除标签',
+    name: '修改标签',
   });
 
 export const deleteTag = (id: string) =>

@@ -12,13 +12,13 @@ export const getCategoryList = (params: API.Category.ListParams) =>
 export const createCategory = (params: API.Category.CreateParams) =>
   fetch<API.Success>({
     method: 'post',
-    url: `${prefix}/create`,
+    url: `${prefix}`,
     params,
     name: '创建分类',
   });
 
 export const editCategory = (
-  params: API.Category.CreateParams & { categoryId: string }
+  params: API.Category.CreateParams & { id: string }
 ) =>
   fetch<API.Success>({
     method: 'put',

@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export namespace Article {
   type ArticleItem = {
-    articleId: string;
+    id: string;
     title: string;
     content: string;
     readingNum: number;
     summary: string;
-    category: {
+    categories: {
       categoryName: string;
-      categoryId: string;
-    };
+      id: string;
+    }[];
     tags: {
       tagName: string;
-      tagId: string;
+      id: string;
     }[];
     coverImage: string;
     createTime: string;
@@ -20,14 +20,14 @@ export namespace Article {
   };
 
   type ListResult = {
-    articleList: ArticleItem[];
+    data: ArticleItem[];
     total: number;
   };
 
   type CreateParams = {
     content: string;
     title: string;
-    categoryId: string;
+    categoryId: string[];
     tagIds: string[];
     summary: string;
     coverImage: string;
@@ -38,7 +38,7 @@ export namespace Article {
   };
 
   type ListParams = API.PageParams & {
-    categoryId?: string;
+    id?: string;
     tagIds?: string[];
     title?: string;
   };

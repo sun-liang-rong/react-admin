@@ -36,8 +36,8 @@ function ArticleSearchForm(props: Props) {
 
   const tagOptions = useMemo(() => {
     return (
-      tagResult?.tagList?.map((val) => ({
-        value: val.tagId,
+      tagResult?.data?.map((val) => ({
+        value: val.id,
         label: val.tagName,
       })) ?? []
     );
@@ -45,8 +45,8 @@ function ArticleSearchForm(props: Props) {
 
   const categoryOptions = useMemo(() => {
     return (
-      categoryResult?.categoryList?.map((val) => ({
-        value: val.categoryId,
+      categoryResult?.data?.map((val) => ({
+        value: val.id,
         label: val.categoryName,
       })) ?? []
     );

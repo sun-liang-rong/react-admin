@@ -15,7 +15,7 @@ function EditCategoryInfo(props: Props) {
     if (selectInfo) {
       await editCategory({
         ...values,
-        categoryId: selectInfo.categoryId,
+        id: selectInfo.id,
       });
     } else {
       await createCategory(values);

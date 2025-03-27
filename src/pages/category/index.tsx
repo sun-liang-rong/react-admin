@@ -63,7 +63,7 @@ function CategoryList() {
               size="small"
               type="outline"
               status="danger"
-              onClick={() => onDelete(row.categoryId)}
+              onClick={() => onDelete(row.id)}
             >
               删除
             </Button>
@@ -79,7 +79,7 @@ function CategoryList() {
     });
     return {
       total: res.total,
-      list: res.categoryList,
+      list: res.data,
     };
   };
 

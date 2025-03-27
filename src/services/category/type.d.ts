@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export namespace Category {
   type CategoryItem = {
-    categoryId: string;
+    id: string;
     categoryName: string;
     createTime: string;
     updateTime: string;
   };
 
   type ListResult = {
-    categoryList: CategoryItem[];
+    data: CategoryItem[];
     total: number;
   };
 

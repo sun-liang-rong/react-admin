@@ -12,12 +12,12 @@ function ArticleList() {
   const [form] = Form.useForm();
   const history = useHistory();
 
-  const onDelete = (articleId: string) => {
+  const onDelete = (id: string) => {
     Modal.confirm({
       title: '是否确认删除此标签',
       okButtonProps: { status: 'danger' },
       onOk: async () => {
-        await deleteArticle(articleId);
+        await deleteArticle(id);
         tableRef.current.reload();
       },
     });
@@ -31,7 +31,15 @@ function ArticleList() {
     {
       title: '分类',
       render: (_, row) => {
-        return <Tag color="arcoblue">{row.category.categoryName}</Tag>;
+        return(
+          <Space>
+            {row.categories?.map((val) => (
+              <Tag color="arcoblue" key={val.id}>
+                {val.categoryName}
+              </Tag>
+            ))}
+          </Space>
+        )
       },
     },
     {
@@ -40,7 +48,7 @@ function ArticleList() {
         return (
           <Space>
             {row.tags?.map((val) => (
-              <Tag color="arcoblue" key={val.tagId}>
+              <Tag color="arcoblue" key={val.id}>
                 {val.tagName}
               </Tag>
             ))}
@@ -70,7 +78,7 @@ function ArticleList() {
               size="small"
               type="primary"
               onClick={() => {
-                history.push(`/article/editInfo?id=${row.articleId}`);
+                history.push(`/article/editInfo?id=${row.id}`);
               }}
             >
               编辑
@@ -79,7 +87,7 @@ function ArticleList() {
               size="small"
               type="outline"
               status="danger"
-              onClick={() => onDelete(row.articleId)}
+              onClick={() => onDelete(row.id)}
             >
               删除
             </Button>
@@ -101,7 +109,7 @@ function ArticleList() {
     });
     return {
       total: res.total,
-      list: res.articleList,
+      list: res.data,
     };
   };
 
