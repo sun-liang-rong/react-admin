@@ -29,14 +29,14 @@ function EditArticleInfo(props: Props) {
       title,
       summary,
       tagIds: detail?.tags?.map((val) => val.id) ?? [],
-      categoryId: categories?.map((val) => val.id) ?? [],
+      categoryId: categories?.[0]?.id ?? null,
       coverImage: detail?.coverImage,
     }, 'detail');
     return {
       title,
       summary,
       tagIds: detail?.tags?.map((val) => val.id) ?? [],
-      categoryId: categories?.map((val) => val.id) ?? [],
+      categoryId: categories?.[0]?.id ?? null,
       coverImage: detail?.coverImage,
     };
   }, [detail]);
