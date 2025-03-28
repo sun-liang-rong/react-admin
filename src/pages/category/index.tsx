@@ -95,7 +95,7 @@ function CategoryList() {
         tableRef={tableRef}
         columns={columns}
         request={loadList}
-        rowKey="categoryId"
+        rowKey="id"
         toolBarRender={
           <React.Fragment>
             <Button

@@ -132,7 +132,7 @@ function ArticleList() {
         tableRef={tableRef}
         columns={columns}
         request={loadList}
-        rowKey="articleId"
+        rowKey="id"
         toolBarRender={
           <React.Fragment>
             <Button

@@ -14,7 +14,7 @@ export const uploadFile = (params: FormData) =>
     path: string;
   }>({
     method: 'post',
-    url: `file/upload`,
+    url: `/upload/image`,
     params,
     name: '上传图片',
     config: {

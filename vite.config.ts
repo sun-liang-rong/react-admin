@@ -27,6 +27,7 @@ export default (config: ConfigEnv) =>
     ],
     server: {
       open: true,
+      port: 3003,
       proxy: {
         '/api': {
           target: 'http://127.0.0.1:3001/',
