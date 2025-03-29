@@ -1,7 +1,8 @@
 import { Editor } from '@bytemd/react';
 import type { EditorProps } from '@bytemd/react';
 import gfm from '@bytemd/plugin-gfm';
-import highlightSsr from '@bytemd/plugin-highlight-ssr';
+// import highlightSsr from '@bytemd/plugin-highlight-ssr';
+import highlight from '@bytemd/plugin-highlight';
 import math from '@bytemd/plugin-math';
 import mediumZoom from '@bytemd/plugin-medium-zoom';
 import mermaid from '@bytemd/plugin-mermaid';
@@ -12,7 +13,7 @@ import 'juejin-markdown-themes';
 import 'juejin-markdown-themes/dist/juejin.css'; // md theme
 import 'bytemd/dist/index.css';
 // 高亮的颜色样式
-import 'highlight.js/styles/github.css';
+import 'highlight.js/styles/github.min.css';
 import zh from 'bytemd/locales/zh_Hans.json';
 import { uploadFile } from '@/services/auth';
 const env = import.meta.env as any;
@@ -24,7 +25,7 @@ const plugins = [
   math(), // 数学公式
   mediumZoom(), // 缩放预览图片
   mermaid(), // 图表
-  highlightSsr(), // 突出显示代码块
+  highlight(), // 突出显示代码块
 ];
 
 interface Pick {

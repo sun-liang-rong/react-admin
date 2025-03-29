@@ -44,7 +44,7 @@ function ProUpload(props: Props) {
     <Upload
       onChange={handleChange}
       showUploadList={false}
-      action={`http://localhost:3000/api/upload/image`}
+      action={`http://localhost:3003/api/upload/image`}
     >
       <div className="w-200px h-100px">
         {value ? (
